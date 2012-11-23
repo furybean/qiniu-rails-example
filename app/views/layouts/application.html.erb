@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QiniuRailsExample</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header">
+	<div id="user-info">
+	<% if session[:user] %>
+		<span>用户:<%= session[:user].username if session[:user] %></span>
+		<%= link_to_unless_current "上传图片", new_upload_path %>
+		<a href="/users/logout">退出</a>		
+	<% end %>
+	</div>
+	<a id="logo" href="/">
+		Qiniu For Rails
+	</a>
+</div>
+
+<div id="main-content">
+	<%= yield %>
+</div>
+
+<div id="footer">
+	No rights reserved.
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div id="login-panel">
+
+  <%= form_tag "/users/authenticate" do %>
+
+	  <div class="field">
+		<label for="username">用户名</label>
+		<%= text_field_tag :username, params[:username] %>
+	  </div>
+
+	  <div class="field">
+		<label for="password">密码</label>
+		<%= password_field_tag :password, params[:password] %>
+	  </div>
+
+	  <div class="btns">
+      	<%= submit_tag "登录"%>
+      	<%= link_to "注册", "/users/register" %>
+	  </div>
+    
+  <% end %>
+
+
+</div>

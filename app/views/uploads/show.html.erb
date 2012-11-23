@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>文件名:</b>
+  <%= @upload.file_name %>
+</p>
+
+<p>
+  <b>文件大小:</b>
+  <%= readable_file_size @upload.file_size, 1 %>
+</p>
+
+<p>
+  <b>文件类型:</b>
+  <%= @upload.file_type %>
+</p>
+
+<img src= <%= download_path @upload %> />

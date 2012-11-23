@@ -1,0 +1,19 @@
+<table id="uploads-table">
+  <tr>    
+    <th width="450">文件名</th>
+    <th width="120">文件大小</th>
+    <th width="200">上传时间</th>
+    <th colspan="3">操作</th>    
+  </tr>
+
+<% @uploads.each do |upload| %>
+  <tr>
+    <td><%= upload.file_name %></td>
+    <td><%= readable_file_size upload.file_size, 1 %></td>
+    <td><%= upload.created_at %></td>
+    <td><%= link_to '显示', upload %></td>
+    <td><%= link_to '下载', download_url(upload) %></td>
+    <td><%= link_to '删除', upload, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
